@@ -6,7 +6,7 @@ const HomePage = () =>{
 
     return (
     <>
-        <h1>Chrivia Home Page</h1>
+        <h1 id='appTitle'>Chrivia Home Page</h1>
     </>
     )
 };
