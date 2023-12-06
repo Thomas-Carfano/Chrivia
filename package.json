@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start1": "npm i && cd client && npm run dev",
-    "start2": "npm i && cd client && npm i && npm run build && cd .. && cd server && node ./index.js"
+    "startAWS": "npm i && cd client && npm i && npm run build",
+    "start": "npm i && cd client && npm i && npm run build && cd .. && cd server && node ./index.js"
   },
   "author": "",
   "license": "ISC",
