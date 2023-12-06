@@ -23,6 +23,10 @@ app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist/index.html'))
 });
 
+app.get('/game', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'))
+});
+
 app.listen(PORT, (error) => {
     if(!error){
         console.log(`Server is listening on ${PORT}`)
