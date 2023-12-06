@@ -1,8 +1,12 @@
+body{
+    background-color: black;
+}
+
 #appTitle{
     text-align: center;
     color: white;
 }
 
-body{
-    background-color: black;
+#startGame{
+    color: white;
 }
