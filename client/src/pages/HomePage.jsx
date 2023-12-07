@@ -13,7 +13,7 @@ const HomePage = () =>{
             <Button sx={{ ml: 2 }} href='/signup'>SignUp</Button>
         </div>
 
-        <Button size="large" sx={{ ml: 84, mt: 30 }} href='/game'>Start New Game</Button>
+        <Button size="large" sx={{ ml: 80, mt: 30 }} href='/game'>Start New Game</Button>
     </>
     )
 };
