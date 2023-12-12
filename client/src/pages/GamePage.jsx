@@ -11,20 +11,43 @@ const Game = () => {
   const [wrong1, setWrong1] = useState(null);
   const [wrong2, setWrong2] = useState(null);
   const [wrong3, setWrong3] = useState(null);
+  const [gameInfo, setGameInfo] = useState([]);
+  const [currentQuestion, setCurrentQuestion] = useState({});
 
   const selectGameName = () => {
     console.log(gameName);
     document.getElementById('nameNext').style.display = 'none'
   }
 
-  const saveQuestion = () => {
-    console.log('saveQuestionFunction')
-    console.log(question);
-    console.log(answer);
-    console.log(wrong1);
-    console.log(wrong2);
-    console.log(wrong3);
+  const clearUserInput = () => {
+    document.getElementById('mainQuestion').value = '';
+    document.getElementById('correctAnswer').value = '';
+    document.getElementById('wrongAnswer1').value = '';
+    document.getElementById('wrongAnswer2').value = '';
+    document.getElementById('wrongAnswer3').value = '';
+    setQuestion(null)
+    setAnswer(null)
+    setWrong1(null)
+    setWrong2(null)
+    setWrong3(null)
+  }
 
+  const saveQuestion = () => {
+    currentQuestion.question = question;
+    currentQuestion.answer = answer;
+    currentQuestion.wrong1 = wrong1;
+    currentQuestion.wrong2 = wrong2;
+    currentQuestion.wrong3 = wrong3;
+    console.log(currentQuestion);
+    gameInfo.push(currentQuestion);
+    console.log(gameInfo)
+    clearUserInput()
+  }
+
+  const startGame = () => {
+    console.log('start game')
+    currentQuestion.gameName = gameName;
+    console.log(gameInfo)
   }
 
 
@@ -39,10 +62,9 @@ const Game = () => {
         >
 
         <div>
-          <h2>Choose A Name For The Game</h2>
-          
+          <h2>Game Name</h2>
           <TextField
-            id="outlined-multiline-flexible"
+            id="gameName"
             label="Game Name"
             multiline
             maxRows={4}
@@ -50,10 +72,7 @@ const Game = () => {
               setGameName(e.target.value);
             }}
           />
-
-          <br/>
-          <Button sx={{ml: 17}} id='nameNext' variant="contained" onClick={selectGameName}>Save</Button>
-        </div>
+          </div>
 
        <TextField
           id="mainQuestion"
@@ -65,8 +84,8 @@ const Game = () => {
             setQuestion(e.target.value);
           }}
         />
-        
-        <TextField
+
+       <TextField
           id="correctAnswer"
           label="Correct Answer"
           multiline
@@ -104,9 +123,21 @@ const Game = () => {
           }}
         />
         <br/>
-        <Button sx={{ml: 98}} id='questionNext' variant="contained" onClick={saveQuestion}>Next</Button>
+        <Button sx={{ml: 98}} id='questionNext' variant="contained" onClick={saveQuestion}>Next Question</Button>
+        <Button sx={{ml: 5}} id='questionNext' variant="contained" onClick={startGame}>Start Game</Button>
     </Box>
+    <h1>Game Name: {gameName}</h1>
 
+    {gameInfo.map((_, index) => (
+      <>
+      <h2>Round {index + 1}</h2>
+      <h3>Question: {_.question}</h3>
+      <h3>Answer: {_.answer}</h3>
+      <h3>Decoy Answer 1: {_.wrong1}</h3>
+      <h3>Decoy Answer 2: {_.wrong2}</h3>
+      <h3>Decoy Answer 3: {_.wrong3}</h3>
+      </>
+    ))}
         </>
     )
 }
