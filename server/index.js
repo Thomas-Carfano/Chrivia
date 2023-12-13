@@ -23,7 +23,7 @@ app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist/index.html'))
 });
 
-app.get('/game', (req, res) => {
+app.get('/create', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist/index.html'))
 });
 

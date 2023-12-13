@@ -14,22 +14,13 @@ const Game = () => {
   const [gameInfo, setGameInfo] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState({});
 
-  const selectGameName = () => {
-    console.log(gameName);
-    document.getElementById('nameNext').style.display = 'none'
-  }
-
   const clearUserInput = () => {
     document.getElementById('mainQuestion').value = '';
     document.getElementById('correctAnswer').value = '';
     document.getElementById('wrongAnswer1').value = '';
     document.getElementById('wrongAnswer2').value = '';
     document.getElementById('wrongAnswer3').value = '';
-    setQuestion(null)
-    setAnswer(null)
-    setWrong1(null)
-    setWrong2(null)
-    setWrong3(null)
+    setCurrentQuestion({})
   }
 
   const saveQuestion = () => {
@@ -43,13 +34,6 @@ const Game = () => {
     console.log(gameInfo)
     clearUserInput()
   }
-
-  const startGame = () => {
-    console.log('start game')
-    currentQuestion.gameName = gameName;
-    console.log(gameInfo)
-  }
-
 
     return (
         <>
@@ -124,10 +108,9 @@ const Game = () => {
         />
         <br/>
         <Button sx={{ml: 98}} id='questionNext' variant="contained" onClick={saveQuestion}>Next Question</Button>
-        <Button sx={{ml: 5}} id='questionNext' variant="contained" onClick={startGame}>Start Game</Button>
+        <Button sx={{ml: 5}} id='questionNext' variant="contained" >Start Game</Button>
     </Box>
     <h1>Game Name: {gameName}</h1>
-
     {gameInfo.map((_, index) => (
       <>
       <h2>Round {index + 1}</h2>
@@ -137,7 +120,7 @@ const Game = () => {
       <h3>Decoy Answer 2: {_.wrong2}</h3>
       <h3>Decoy Answer 3: {_.wrong3}</h3>
       </>
-    ))}
+      ))}
         </>
     )
 }
