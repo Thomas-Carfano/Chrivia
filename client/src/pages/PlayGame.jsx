@@ -2,7 +2,7 @@ import '../App.css';
 import Button from '@mui/material/Button';
 
 
-const HomePage = () =>{
+const PlayGame = () =>{
 
     return (
     <>
@@ -18,4 +18,4 @@ const HomePage = () =>{
     )
 };
 
-export default HomePage;
+export default PlayGame;
