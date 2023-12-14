@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import { useState } from "react";
 
 
-const Game = () => {
+const CreateGame = () => {
   const [gameName, setGameName] = useState(null);
   const [question, setQuestion] = useState(null);
   const [answer, setAnswer] = useState(null);
@@ -108,7 +108,7 @@ const Game = () => {
         />
         <br/>
         <Button sx={{ml: 98}} id='questionNext' variant="contained" onClick={saveQuestion}>Next Question</Button>
-        <Button sx={{ml: 5}} id='questionNext' variant="contained" >Start Game</Button>
+        <Button sx={{ml: 5}} id='questionNext' variant="contained" href='/play' >Start Game</Button>
     </Box>
     <h1>Game Name: {gameName}</h1>
     {gameInfo.map((_, index) => (
@@ -125,4 +125,4 @@ const Game = () => {
     )
 }
 
-export default Game;
+export default CreateGame;
