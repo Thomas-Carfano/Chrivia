@@ -20,7 +20,7 @@ const CreateGame = () => {
     document.getElementById('wrongAnswer1').value = '';
     document.getElementById('wrongAnswer2').value = '';
     document.getElementById('wrongAnswer3').value = '';
-    setCurrentQuestion({})
+    setCurrentQuestion({});
   }
 
   const saveQuestion = () => {
@@ -29,15 +29,13 @@ const CreateGame = () => {
     currentQuestion.wrong1 = wrong1;
     currentQuestion.wrong2 = wrong2;
     currentQuestion.wrong3 = wrong3;
-    console.log(currentQuestion);
     gameInfo.push(currentQuestion);
-    console.log(gameInfo)
-    clearUserInput()
+    clearUserInput();
   }
 
     return (
         <>
-        <h1 id='appTitle'> Welcome To The Game Page</h1> 
+        <h1 id='appTitle'> Welcome To The Game Page</h1>;
 
         <Box component="form"
         sx={{'& .MuiTextField-root': { m: 1, width: '25ch' },}}
@@ -56,7 +54,7 @@ const CreateGame = () => {
               setGameName(e.target.value);
             }}
           />
-          </div>
+          </div>;
 
        <TextField
           id="mainQuestion"

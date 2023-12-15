@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import '../App.css';
 import Button from '@mui/material/Button';
 
 
 const PlayGame = () =>{
+    const [gameCode, setGameCode] = useState(null) ;
 
     const getGameCode = () => {
-        console.log("Generate Code Here")
+        const val = Math.floor(1000 + Math.random() * 9000);
+        setGameCode(val);
     }
 
     return (
@@ -17,7 +20,10 @@ const PlayGame = () =>{
             <Button sx={{ ml: 2 }} href='/signup'>SignUp</Button>
         </div>
 
-        <Button size="large" sx={{ ml: 80, mt: 30 }} onclick={getGameCode}>Get Game Code</Button>
+        <Button size="large" sx={{ ml: 83, mt: 10 }} onClick={getGameCode}>Get Game Code</Button>
+        <h1 id="gameCode">{gameCode}</h1>
+        <h2>Players:</h2>
+
     </>
     )
 };
