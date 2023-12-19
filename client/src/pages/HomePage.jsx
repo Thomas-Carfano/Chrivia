@@ -14,6 +14,7 @@ const HomePage = () =>{
         </div>
 
         <Button size="large" sx={{ ml: 80, mt: 30 }} href='/create'>Start New Game</Button>
+        <Button size="large" sx={{ ml: 80, mt: 30 }} href='/play'>Join A Game</Button>
     </>
     )
 };

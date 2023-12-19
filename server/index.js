@@ -27,9 +27,14 @@ app.get('/create', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist/index.html'))
 });
 
+app.get('/start', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'))
+});
+
 app.get('/play', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist/index.html'))
 });
+
 
 
 app.listen(PORT, (error) => {
