@@ -106,7 +106,7 @@ const CreateGame = () => {
         />
         <br/>
         <Button sx={{ml: 98}} id='questionNext' variant="contained" onClick={saveQuestion}>Next Question</Button>
-        <Button sx={{ml: 5}} id='questionNext' variant="contained" href='/play' >Start Game</Button>
+        <Button sx={{ml: 5}} id='questionNext' variant="contained" href='/start' >Start Game</Button>
     </Box>
     <h1>Game Name: {gameName}</h1>
     {gameInfo.map((_, index) => (
