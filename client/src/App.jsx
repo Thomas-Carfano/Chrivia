@@ -4,7 +4,7 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import CreateGame from './pages/CreateGame';
 import StartGame from './pages/StartGame';
-import PlayGame from './pages/PlayGame';
+import PlayGame from './pages/user/PlayGame';
 
 const App = () => {
 
