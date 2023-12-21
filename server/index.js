@@ -54,7 +54,11 @@ io.on("connection", (socket) => {
     const joinRoom = (roomName, roomNum) => {
       if (!io.sockets.adapter.rooms.get(roomName)) {
         console.log("No Users in Room");
-        socket.join(roomName);
+        socket.join(roomNum);
+        console.log(`Backend1: ${roomName}`)
+        console.log(`Added ${socket.id} to ${roomName}`);
+        console.log(io.sockets.adapter.rooms.get(roomNum).size);
+        io.to(roomNum).emit("addUser", roomNum);
       }
         else if (io.sockets.adapter.rooms.get(roomName).size < 3) {
             socket.join(roomName);
@@ -64,11 +68,12 @@ io.on("connection", (socket) => {
                 roomNum++;
                 roomName = `Room${roomNum}`;
                 joinRoom(roomName, roomNum);
+
             }
     }
-    socket.on("join", (join) => {
-        let roomNum = 1;
-        let roomName = `Room${roomNum}`;
+    socket.on("join", (randRoomNum) => {
+        let roomNum = randRoomNum;
+        let roomName = `Room ${randRoomNum}`;
         joinRoom(roomName, roomNum);
       });
 });

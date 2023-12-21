@@ -11,14 +11,17 @@ const StartGame = () =>{
         const val = Math.floor(1000 + Math.random() * 9000);
         setGameCode(val);
         document.getElementById('gameCodeButton').style.display = 'none';
-        startGameSocket()
+        startGameSocket(val)
     };
 
-    const startGameSocket = () => {
-        socket.emit('join', (socket) => {
-            console.log(socket.id)
-        })
+    const startGameSocket = (val) => {
+        socket.emit('join', val)
     };
+
+    socket.on("addUser", (userIdx) => {
+        console.log(`Room Number: ${userIdx}`);
+      });
+    
 
     return (
     <>
