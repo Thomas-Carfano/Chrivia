@@ -53,14 +53,17 @@ server.listen(process.env.PORT, (error) => {
 io.on("connection", (socket) => {
     const joinRoom = (roomName, roomNum) => {
       if (!io.sockets.adapter.rooms.get(roomName)) {
-        console.log("No Users in Room");
+        
+        // if (io.sockets.adapter.rooms.get(roomName).size <= 0){
+        //     console.log("No Users in Room");
+        // }
         socket.join(roomNum);
         console.log(`Backend1: ${roomName}`)
         console.log(`Added ${socket.id} to ${roomName}`);
         console.log(io.sockets.adapter.rooms.get(roomNum).size);
         io.to(roomNum).emit("addUser", roomNum);
       }
-        else if (io.sockets.adapter.rooms.get(roomName).size < 3) {
+        else if (io.sockets.adapter.rooms.get(roomName).size < 10) {
             socket.join(roomName);
             rooms.roomName.addPlayer();
         }
